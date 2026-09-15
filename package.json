@@ -1,0 +1,51 @@
+{
+  "name": "bb-plugin-vesper",
+  "version": "0.1.0",
+  "description": "Peppermint and orange flavored dark theme for BB, based on Vesper by Rauno Freiberg.",
+  "type": "module",
+  "license": "MIT",
+  "engines": {
+    "bb": ">=0.43",
+    "bbPluginSdk": ">=0.4.87"
+  },
+  "scripts": {
+    "build": "bb plugin build",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "bb": {
+    "name": "Vesper",
+    "description": "Peppermint and orange flavored dark theme for BB, based on Vesper by Rauno Freiberg.",
+    "branding": {
+      "icon": "Palette"
+    },
+    "server": "./server.ts",
+    "skills": [
+      "skills"
+    ],
+    "themes": [
+      {
+        "id": "vesper",
+        "name": "Vesper",
+        "description": "Peppermint and orange flavored dark theme by Rauno Freiberg",
+        "css": "./themes/vesper.css",
+        "codeTheme": {
+          "dark": "./themes/vesper-code-dark.json",
+          "light": "github-light"
+        }
+      }
+    ]
+  },
+  "devDependencies": {
+    "@get-bb/plugin-sdk": "0.4.87",
+    "@types/node": "^22.0.0",
+    "typescript": "^5.7.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dillionverma/bb-plugin-vesper.git"
+  },
+  "homepage": "https://github.com/dillionverma/bb-plugin-vesper#readme",
+  "bugs": {
+    "url": "https://github.com/dillionverma/bb-plugin-vesper/issues"
+  }
+}
