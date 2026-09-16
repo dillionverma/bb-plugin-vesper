@@ -4,11 +4,18 @@ Peppermint and orange for BB. A port of Rauno Freiberg’s Vesper theme.
 
 A plugin for [BB](https://getbb.app).
 
-## Highlights
+## Themes
 
-- **App palette.** Canvas, text, accents, surfaces, and terminal colors.
-- **Code palette.** Vesper syntax highlighting in source and diff views.
-- **Light companion.** An inverted app palette paired with GitHub Light code highlighting.
+| Id                           | Name         | Behaviour                                           |
+| ---------------------------- | ------------ | --------------------------------------------------- |
+| `plugin:vesper:vesper`       | Vesper       | Follows the app's light/dark mode                   |
+| `plugin:vesper:vesper-dark`  | Vesper Dark  | Rauno's original dark palette, forced in both modes |
+| `plugin:vesper:vesper-light` | Vesper Light | Paper-white inversion of the same hues, forced      |
+
+Each palette covers canvas, text, accents, surfaces, borders, and the full
+16-color terminal set, with a matching code theme for source and diff views.
+Vesper itself is dark-only; the light side is a derived inversion (peach
+`#c2660f`, mint `#158a68`, red `#b83232` on `#fafafa`).
 
 ## Install
 
@@ -20,7 +27,11 @@ Requires BB 0.43+ and a compatible Plugin SDK (see `package.json`).
 
 ## Use
 
-Run `bb theme set plugin:vesper:vesper`, or select **Vesper** under Settings → Appearance.
+```sh
+bb theme set plugin:vesper:vesper        # or vesper-dark / vesper-light
+```
+
+Or pick one of the three under Settings → Appearance.
 
 ## Designed to stay responsive
 
@@ -56,4 +67,5 @@ Built for getting work done across multiple threads, agents, and projects. Insta
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE). The Vesper palette and code theme are © Rauno
+Freiberg, MIT; see [LICENSE-VESPER](LICENSE-VESPER).

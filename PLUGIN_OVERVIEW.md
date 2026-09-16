@@ -4,11 +4,11 @@ Peppermint and orange for BB. A port of Rauno Freiberg’s Vesper theme.
 
 - **App palette.** Canvas, text, accents, surfaces, and terminal colors.
 - **Code palette.** Vesper syntax highlighting in source and diff views.
-- **Light companion.** An inverted app palette paired with GitHub Light code highlighting.
+- **Three palettes.** Vesper (follows app mode), Vesper Dark, and Vesper Light (a derived inversion with its own code theme).
 
-## Requirements
+## Use
 
-Run `bb theme set plugin:vesper:vesper`, or select **Vesper** under Settings → Appearance.
+Run `bb theme set plugin:vesper:vesper` (or `vesper-dark` / `vesper-light`), or pick one under Settings → Appearance.
 
 ## Source
 
