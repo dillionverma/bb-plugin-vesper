@@ -1,0 +1,87 @@
+/* Vesper for BB — a port of Vesper by Rauno Freiberg
+   https://github.com/raunofreiberg/vesper (MIT)
+   Ports of the palette to other editors and terminals collected by Vlad Arbatov:
+   https://github.com/vladzima/vesper-theme
+
+   "Peppermint and orange flavored dark theme."
+   Core: bg #101010, fg #FFFFFF, muted #A0A0A0, peach #FFC799, mint #99FFE4, red #FF8080.
+   Vesper is dark-only; the light block is a faithful inversion using the same three hues. */
+
+/* Forced variant: Vesper dark in both light and dark app modes. */
+:root,
+.light,
+.dark {
+  /* anchors — Vesper editor.background / editor.foreground */
+  --canvas: #101010;
+  --ink: #ffffff;
+
+  /* accent — Vesper peach (button.background, focusBorder, textLink) */
+  --primary: #ffc799;
+  --primary-foreground: #000000;
+  --file-accent: #ffc799;
+
+  /* text tiers — Vesper's #A0A0A0 muted grey, #7E7E7E, #505050 */
+  --muted-foreground: #a0a0a0;
+  --subtle-foreground: #7e7e7e;
+  --readback-foreground: #8b8b8b;
+
+  /* surfaces — Vesper's flat greys instead of ink-mixed derivations */
+  --card: #101010;
+  --popover: #161616;
+  --secondary: #1c1c1c;
+  --accent: #232323;
+  --muted: #1c1c1c;
+  --border: #282828;
+  --border-hairline: #282828;
+  --border-seam: #1c1c1c;
+  --input: #343434;
+  --sidebar: #101010;
+  --sidebar-accent: #282828;
+  --sidebar-border: #1c1c1c;
+
+  /* semantic — Vesper red #FF8080, mint #99FFE4, peach warnings */
+  --destructive: #ff8080;
+  --destructive-foreground: #000000;
+  --destructive-text: #ff8080;
+  --warning: #ffc799;
+  --warning-text: #ffc799;
+  --attention: #ffc799;
+  --success: #99ffe4;
+  --diff-added: #99ffe4;
+  --diff-removed: #ff8080;
+  --pr-merged: #c4b0ff;
+
+  /* terminal — Vesper ANSI */
+  --ansi-0: #101010;
+  --ansi-1: #ff8080;
+  --ansi-2: #99ffe4;
+  --ansi-3: #ffc799;
+  --ansi-4: #a0a0a0;
+  --ansi-5: #c4b0ff;
+  --ansi-6: #99ffe4;
+  --ansi-7: #a0a0a0;
+  --ansi-8: #505050;
+  --ansi-9: #ff9999;
+  --ansi-10: #b3ffec;
+  --ansi-11: #ffcfa8;
+  --ansi-12: #c0c0c0;
+  --ansi-13: #d6c8ff;
+  --ansi-14: #b3ffec;
+  --ansi-15: #ffffff;
+  --ansi-bg-fg-0: #ffffff;
+  --ansi-bg-fg-1: #000000;
+  --ansi-bg-fg-2: #000000;
+  --ansi-bg-fg-3: #000000;
+  --ansi-bg-fg-4: #000000;
+  --ansi-bg-fg-5: #000000;
+  --ansi-bg-fg-6: #000000;
+  --ansi-bg-fg-7: #000000;
+  --ansi-bg-fg-8: #ffffff;
+  --ansi-bg-fg-9: #000000;
+  --ansi-bg-fg-10: #000000;
+  --ansi-bg-fg-11: #000000;
+  --ansi-bg-fg-12: #000000;
+  --ansi-bg-fg-13: #000000;
+  --ansi-bg-fg-14: #000000;
+  --ansi-bg-fg-15: #000000;
+}

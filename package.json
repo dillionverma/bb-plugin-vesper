@@ -26,11 +26,31 @@
       {
         "id": "vesper",
         "name": "Vesper",
-        "description": "Peppermint and orange flavored dark theme by Rauno Freiberg",
+        "description": "Peppermint and orange. Follows the app's light/dark mode.",
         "css": "./themes/vesper.css",
         "codeTheme": {
           "dark": "./themes/vesper-code-dark.json",
-          "light": "github-light"
+          "light": "./themes/vesper-code-light.json"
+        }
+      },
+      {
+        "id": "vesper-dark",
+        "name": "Vesper Dark",
+        "description": "Rauno Freiberg's original dark palette, always dark.",
+        "css": "./themes/vesper-dark.css",
+        "codeTheme": {
+          "dark": "./themes/vesper-code-dark.json",
+          "light": "./themes/vesper-code-dark.json"
+        }
+      },
+      {
+        "id": "vesper-light",
+        "name": "Vesper Light",
+        "description": "Paper-white inversion of the same three hues, always light.",
+        "css": "./themes/vesper-light.css",
+        "codeTheme": {
+          "dark": "./themes/vesper-code-light.json",
+          "light": "./themes/vesper-code-light.json"
         }
       }
     ]
