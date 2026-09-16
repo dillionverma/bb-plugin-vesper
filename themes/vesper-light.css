@@ -1,0 +1,78 @@
+/* Vesper for BB — a port of Vesper by Rauno Freiberg
+   https://github.com/raunofreiberg/vesper (MIT)
+   Ports of the palette to other editors and terminals collected by Vlad Arbatov:
+   https://github.com/vladzima/vesper-theme
+
+   "Peppermint and orange flavored dark theme."
+   Core: bg #101010, fg #FFFFFF, muted #A0A0A0, peach #FFC799, mint #99FFE4, red #FF8080.
+   Vesper is dark-only; the light block is a faithful inversion using the same three hues. */
+
+/* Forced variant: Vesper light inversion in both light and dark app modes. */
+
+
+:root,
+.light,
+.dark {
+  /* anchors — paper white, near-black ink */
+  --canvas: #fafafa;
+  --ink: #101010;
+
+  /* accent — Vesper peach, deepened so it reads on white */
+  --primary: #c2660f;
+  --primary-foreground: #ffffff;
+  --file-accent: #b35a08;
+
+  /* text tiers (recompute from whichever anchors are active) */
+  --muted-foreground: color-mix(in oklch, var(--ink) 62%, var(--canvas));
+  --subtle-foreground: color-mix(in oklch, var(--ink) 48%, var(--canvas));
+  --readback-foreground: color-mix(in oklch, var(--ink) 55%, var(--canvas));
+
+  /* semantic */
+  --destructive: #d94848;
+  --destructive-foreground: #ffffff;
+  --destructive-text: #b83232;
+  --warning: #c2660f;
+  --warning-text: #9a4f06;
+  --attention: #c2660f;
+  --success: #158a68;
+  --diff-added: #158a68;
+  --diff-removed: #b83232;
+  --pr-merged: #7c5cd6;
+
+  --radius: 0.375rem;
+
+  /* terminal — Vesper hues on light */
+  --ansi-0: #101010;
+  --ansi-1: #d94848;
+  --ansi-2: #158a68;
+  --ansi-3: #c2660f;
+  --ansi-4: #505050;
+  --ansi-5: #7c5cd6;
+  --ansi-6: #1a9a8a;
+  --ansi-7: #a0a0a0;
+  --ansi-8: #707070;
+  --ansi-9: #ff8080;
+  --ansi-10: #2eb08a;
+  --ansi-11: #e0862e;
+  --ansi-12: #7e7e7e;
+  --ansi-13: #9a7ee6;
+  --ansi-14: #3ab8a8;
+  --ansi-15: #fafafa;
+  --ansi-bg-fg-0: #ffffff;
+  --ansi-bg-fg-1: #ffffff;
+  --ansi-bg-fg-2: #ffffff;
+  --ansi-bg-fg-3: #ffffff;
+  --ansi-bg-fg-4: #ffffff;
+  --ansi-bg-fg-5: #ffffff;
+  --ansi-bg-fg-6: #ffffff;
+  --ansi-bg-fg-7: #101010;
+  --ansi-bg-fg-8: #ffffff;
+  --ansi-bg-fg-9: #101010;
+  --ansi-bg-fg-10: #101010;
+  --ansi-bg-fg-11: #101010;
+  --ansi-bg-fg-12: #ffffff;
+  --ansi-bg-fg-13: #ffffff;
+  --ansi-bg-fg-14: #101010;
+  --ansi-bg-fg-15: #101010;
+}
+
