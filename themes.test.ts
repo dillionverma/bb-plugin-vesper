@@ -62,6 +62,7 @@ test("the package ships every file the manifest names, plus both licenses", () =
     execFileSync("npm", ["pack", "--dry-run", "--json", "--ignore-scripts"], {
       cwd: fileURLToPath(root),
       encoding: "utf8",
+      shell: process.platform === "win32",
     }),
   );
   const shipped = new Set(pack.files.map((file: { path: string }) => file.path));
@@ -96,8 +97,15 @@ test.each([
   const byId = Object.fromEntries(themes.map((theme) => [theme.id, theme]));
   const forced = byId[id];
   const follow = byId.vesper;
-  expect(resolvedTokens(forced.css, "light")).toEqual(resolvedTokens(follow.css, mode));
-  expect(resolvedTokens(forced.css, "dark")).toEqual(resolvedTokens(follow.css, mode));
+  // BB switches color-scheme and shadows only with its .dark class, so a forced
+  // palette must carry its mode's own, on top of Vesper's palette for that mode.
+  for (const appMode of ["light", "dark"] as const) {
+    const tokens = resolvedTokens(forced.css, appMode);
+    const palette = Object.fromEntries(Object.entries(tokens).filter(([name]) => !name.startsWith("--shadow")));
+    expect(palette).toEqual(resolvedTokens(follow.css, mode));
+    expect(tokens["--shadow-md"]).toBeDefined();
+  }
+  expect(read(forced.css)).toMatch(new RegExp(`color-scheme:\\s*${mode};`));
   expect(forced.codeTheme).toEqual({
     dark: follow.codeTheme[mode],
     light: follow.codeTheme[mode],

@@ -74,5 +74,19 @@
   --ansi-bg-fg-13: #ffffff;
   --ansi-bg-fg-14: #101010;
   --ansi-bg-fg-15: #101010;
-}
 
+  /* BB switches color-scheme and shadows only with its .dark class, so a
+     palette forced onto both modes carries the light ones itself. */
+  color-scheme: light;
+  --shadow-color: #3333331a;
+  --shadow-opacity: 0.15;
+  --shadow-2xs: 0px 2px 0px 0px #33333312;
+  --shadow-xs: 0px 2px 0px 0px #33333312;
+  --shadow-sm: 0px 2px 0px 0px #33333326, 0px 1px 2px -1px #33333326;
+  --shadow: 0px 2px 0px 0px #33333326, 0px 1px 2px -1px #33333326;
+  --shadow-md: 0px 2px 0px 0px #33333326, 0px 2px 4px -1px #33333326;
+  --shadow-lift: 0px -4px 12px -4px #33333312;
+  --shadow-lg: 0px 2px 0px 0px #33333326, 0px 4px 6px -1px #33333326;
+  --shadow-xl: 0px 2px 0px 0px #33333326, 0px 8px 10px -1px #33333326;
+  --shadow-2xl: 0px 2px 0px 0px #33333361;
+}
