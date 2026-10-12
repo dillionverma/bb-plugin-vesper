@@ -1,12 +1,18 @@
 {
   "name": "bb-plugin-vesper",
-  "version": "0.1.0",
-  "description": "Peppermint and orange flavored dark theme for BB, based on Vesper by Rauno Freiberg.",
+  "version": "1.0.0",
+  "description": "Rauno Freiberg's Vesper theme ported to BB as three palettes (dark, light, and one that follows the app's mode) with matching code colors.",
   "type": "module",
   "license": "MIT",
+  "files": [
+    "server.ts",
+    "themes",
+    "skills",
+    "LICENSE-VESPER"
+  ],
   "engines": {
-    "bb": ">=0.43",
-    "bbPluginSdk": ">=0.4.87"
+    "bb": ">=0.46",
+    "bbPluginSdk": ">=0.6.37"
   },
   "scripts": {
     "build": "bb plugin build",
@@ -15,7 +21,7 @@
   },
   "bb": {
     "name": "Vesper",
-    "description": "Peppermint and orange flavored dark theme for BB, based on Vesper by Rauno Freiberg.",
+    "description": "Rauno Freiberg's Vesper theme ported to BB as three palettes (dark, light, and one that follows the app's mode) with matching code colors.",
     "branding": {
       "icon": "Palette"
     },
@@ -37,7 +43,7 @@
       {
         "id": "vesper-dark",
         "name": "Vesper Dark",
-        "description": "Rauno Freiberg's original dark palette, always dark.",
+        "description": "Vesper's dark palette, always dark.",
         "css": "./themes/vesper-dark.css",
         "codeTheme": {
           "dark": "./themes/vesper-code-dark.json",
