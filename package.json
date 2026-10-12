@@ -1,7 +1,7 @@
 {
   "name": "bb-plugin-vesper",
   "version": "1.0.0",
-  "description": "Rauno Freiberg's Vesper theme ported to BB as three palettes (dark, light, and one that follows the app's mode) with matching code colors.",
+  "description": "Rauno Freiberg's Vesper theme, ported to BB as a dark palette, a light palette, and a palette that follows the app's mode, each with matching code colors.",
   "type": "module",
   "license": "MIT",
   "files": [
@@ -21,7 +21,7 @@
   },
   "bb": {
     "name": "Vesper",
-    "description": "Rauno Freiberg's Vesper theme ported to BB as three palettes (dark, light, and one that follows the app's mode) with matching code colors.",
+    "description": "Rauno Freiberg's Vesper theme, ported to BB as a dark palette, a light palette, and a palette that follows the app's mode, each with matching code colors.",
     "branding": {
       "icon": "Palette"
     },
