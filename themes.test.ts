@@ -16,8 +16,6 @@ const manifest: { bb: { server: string; skills: string[]; themes: Theme[] } } =
   JSON.parse(read("package.json"));
 const { themes } = manifest.bb;
 
-// BB's theming reference lists these as the tokens a palette sets; the rest
-// of the UI derives from them.
 const tokensToSet = [
   "--canvas",
   "--ink",
@@ -38,14 +36,15 @@ const tokensToSet = [
   "--file-accent",
 ];
 
-// BB injects the theme after its own stylesheet and `:root` matches in both
-// modes, so a mode's value is the last one set by a `:root` or `.<mode>` rule.
-function tokens(cssPath: string, mode: "light" | "dark") {
+// BB toggles only a `dark` class on <html>, so `.light` rules never reach the root.
+const rootSelectors = { light: [":root"], dark: [":root", ".dark"] };
+
+function resolvedTokens(cssPath: string, mode: "light" | "dark") {
   const css = read(cssPath).replace(/\/\*[\s\S]*?\*\//g, "");
   const values: Record<string, string> = {};
   for (const [, selectors, body] of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
     const selectorList = selectors.split(",").map((s) => s.trim());
-    if (!selectorList.includes(":root") && !selectorList.includes(`.${mode}`)) continue;
+    if (!rootSelectors[mode].some((selector) => selectorList.includes(selector))) continue;
     for (const [, name, value] of body.matchAll(/(--[\w-]+)\s*:\s*([^;]+);/g)) {
       values[name] = value.trim();
     }
@@ -53,7 +52,7 @@ function tokens(cssPath: string, mode: "light" | "dark") {
   return values;
 }
 
-// The same test BB uses to tell a theme file from a bundled theme name.
+// Mirrors BB's isCodeThemeFilePath; any other codeTheme value names a bundled theme.
 const codeThemeFiles = [
   ...new Set(themes.flatMap((theme) => [theme.codeTheme.dark, theme.codeTheme.light])),
 ].filter((ref) => ref.includes("/") || ref.toLowerCase().endsWith(".json"));
@@ -97,8 +96,8 @@ test.each([
   const byId = Object.fromEntries(themes.map((theme) => [theme.id, theme]));
   const forced = byId[id];
   const follow = byId.vesper;
-  expect(tokens(forced.css, "light")).toEqual(tokens(follow.css, mode));
-  expect(tokens(forced.css, "dark")).toEqual(tokens(follow.css, mode));
+  expect(resolvedTokens(forced.css, "light")).toEqual(resolvedTokens(follow.css, mode));
+  expect(resolvedTokens(forced.css, "dark")).toEqual(resolvedTokens(follow.css, mode));
   expect(forced.codeTheme).toEqual({
     dark: follow.codeTheme[mode],
     light: follow.codeTheme[mode],
@@ -107,7 +106,7 @@ test.each([
 
 describe.each(themes)("$id", ({ css }) => {
   test.each(["light", "dark"] as const)("sets every token BB expects of a palette in %s mode", (mode) => {
-    const values = tokens(css, mode);
+    const values = resolvedTokens(css, mode);
     expect(tokensToSet.filter((token) => !(token in values))).toEqual([]);
     const ansiWithoutText = Object.keys(values).filter(
       (token) => /^--ansi-\d+$/.test(token) && !(token.replace("ansi-", "ansi-bg-fg-") in values),
