@@ -1,71 +1,65 @@
-# Vesper
+<p align="center">
+  <img src="assets/icon.png" alt="Vesper icon" width="88" />
+</p>
 
-Peppermint and orange for BB. A port of Rauno Freiberg’s Vesper theme.
+<h1 align="center">Vesper</h1>
 
-A plugin for [BB](https://getbb.app).
+<p align="center">
+  <strong>Peppermint and orange for BB.</strong>
+</p>
 
-## Themes
+<p align="center">
+  <a href="#highlights">Highlights</a> ·
+  <a href="#screenshots">Screenshots</a> ·
+  <a href="#installation">Installation</a> ·
+  <a href="#development">Development</a>
+</p>
 
-| Id                           | Name         | Behaviour                                           |
-| ---------------------------- | ------------ | --------------------------------------------------- |
-| `plugin:vesper:vesper`       | Vesper       | Follows the app's light/dark mode                   |
-| `plugin:vesper:vesper-dark`  | Vesper Dark  | Rauno's original dark palette, forced in both modes |
-| `plugin:vesper:vesper-light` | Vesper Light | Paper-white inversion of the same hues, forced      |
+<p align="center">
+  <img src="assets/readme/vesper-dark.webp" alt="BB in Vesper Dark: a thread beside its diff, with TypeScript in Vesper's orange and mint. All projects and threads shown are demo data." width="1080" />
+</p>
 
-Each palette covers canvas, text, accents, surfaces, borders, and the full
-16-color terminal set, with a matching code theme for source and diff views.
-Vesper itself is dark-only; the light side is a derived inversion (peach
-`#c2660f`, mint `#158a68`, red `#b83232` on `#fafafa`).
+Vesper brings Rauno Freiberg's [Vesper](https://github.com/raunofreiberg/vesper) color theme to BB. It recolors the app, the code in diffs and file views, and the terminal, in dark and light.
 
-## Install
+## Highlights
+
+- 🌗 **Three palettes.** Vesper follows BB's light or dark mode. Vesper Dark is always dark, and Vesper Light is always light.
+- 🍊 **Code in the same colors.** Diffs and file views use Vesper's syntax colors. The dark code theme is Vesper's own, and the light one maps the same hues onto white.
+- 🖥️ **The terminal matches.** All 16 terminal colors come from the same palette.
+- 🪶 **Only colors.** The plugin is CSS and JSON. It runs nothing in the background and needs no account.
+
+## Screenshots
+
+<p align="center">
+  <img src="assets/readme/vesper-light.webp" alt="BB in Vesper Light: the same demo thread and diff on a white canvas." width="49%" />
+  <img src="assets/readme/vesper-palettes.webp" alt="BB's Appearance settings with the palette menu open on Vesper, Vesper Dark and Vesper Light." width="49%" />
+</p>
+
+## Installation
 
 ```sh
 bb plugin install https://github.com/dillionverma/bb-plugin-vesper
 ```
 
-Requires BB 0.43+ and a compatible Plugin SDK (see `package.json`).
-
-## Use
+Choose **Vesper**, **Vesper Dark** or **Vesper Light** in **Settings → Appearance → Palette**, or set one from a terminal:
 
 ```sh
-bb theme set plugin:vesper:vesper        # or vesper-dark / vesper-light
+bb theme set plugin:vesper:vesper
 ```
 
-Or pick one of the three under Settings → Appearance.
-
-## Designed to stay responsive
-
-A declarative theme: no background polling, agent calls, or external service.
+Requires BB 0.46 or later.
 
 ## Development
 
 ```sh
+git clone https://github.com/dillionverma/bb-plugin-vesper.git
+cd bb-plugin-vesper
 npm ci
-npm run typecheck
-bb plugin build .
+bb plugin install .
 ```
 
-Focused fixes and reproducible bug reports are welcome. Include BB version, platform, and steps to reproduce.
-
-## Compatibility
-
-The repository and display name are independent of BB’s persistent plugin identity. The internal ID remains `vesper` so existing settings, stored data, CLI commands, and integrations continue to work.
-
-## The Ultra suite
-
-Built for getting work done across multiple threads, agents, and projects. Install only the pieces you need.
-
-- [Ultra Sidebar](https://github.com/dillionverma/bb-plugin-ultra-sidebar) — Organize parallel work.
-- [Ultra Launcher](https://github.com/dillionverma/bb-plugin-ultra-launcher) — Start the next run.
-- [Ultra Topbar](https://github.com/dillionverma/bb-plugin-ultra-topbar) — Turn threads into pull requests.
-- [Linear Panel](https://github.com/dillionverma/bb-plugin-linear-panel) — Keep issues beside execution.
-- [Usage Window](https://github.com/dillionverma/bb-plugin-usage-window) — Keep account capacity in view.
-
-## Credits
-
-[Vesper](https://github.com/raunofreiberg/vesper) by Rauno Freiberg, with palette references from [vladzima/vesper-theme](https://github.com/vladzima/vesper-theme).
+Run `npm test`, `npm run typecheck` and `bb plugin build` before submitting changes.
 
 ## License
 
-MIT. See [LICENSE](LICENSE). The Vesper palette and code theme are © Rauno
-Freiberg, MIT; see [LICENSE-VESPER](LICENSE-VESPER).
+[MIT](LICENSE). Vesper's palette and its dark code theme are by Rauno Freiberg, under the MIT license in [LICENSE-VESPER](LICENSE-VESPER).
