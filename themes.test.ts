@@ -90,6 +90,21 @@ test.each(codeThemeFiles)("%s is a VS Code theme BB can load", (path) => {
   expect(theme.tokenColors).toBeInstanceOf(Array);
 });
 
+test.each([
+  ["vesper-dark", "dark"],
+  ["vesper-light", "light"],
+] as const)("%s shows Vesper's %s palette in both app modes", (id, mode) => {
+  const byId = Object.fromEntries(themes.map((theme) => [theme.id, theme]));
+  const forced = byId[id];
+  const follow = byId.vesper;
+  expect(tokens(forced.css, "light")).toEqual(tokens(follow.css, mode));
+  expect(tokens(forced.css, "dark")).toEqual(tokens(follow.css, mode));
+  expect(forced.codeTheme).toEqual({
+    dark: follow.codeTheme[mode],
+    light: follow.codeTheme[mode],
+  });
+});
+
 describe.each(themes)("$id", ({ css }) => {
   test.each(["light", "dark"] as const)("sets every token BB expects of a palette in %s mode", (mode) => {
     const values = tokens(css, mode);
