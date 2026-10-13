@@ -10,7 +10,7 @@ interface Theme {
   codeTheme: { dark: string; light: string };
 }
 
-const root = new URL("./", import.meta.url);
+const root = new URL("../", import.meta.url);
 const read = (path: string) => readFileSync(new URL(path, root), "utf8");
 const manifest: { bb: { server: string; skills: string[]; themes: Theme[] } } =
   JSON.parse(read("package.json"));

@@ -6,7 +6,7 @@
   "license": "MIT",
   "files": [
     "assets/icon.svg",
-    "server.ts",
+    "src/server.ts",
     "themes",
     "skills",
     "LICENSE-VESPER"
@@ -26,7 +26,7 @@
     "branding": {
       "icon": "./assets/icon.svg"
     },
-    "server": "./server.ts",
+    "server": "./src/server.ts",
     "skills": [
       "skills"
     ],
