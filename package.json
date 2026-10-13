@@ -9,7 +9,7 @@
     "src/server.ts",
     "themes",
     "skills",
-    "LICENSE-VESPER"
+    "licenses/VESPER.txt"
   ],
   "engines": {
     "bb": ">=0.46",

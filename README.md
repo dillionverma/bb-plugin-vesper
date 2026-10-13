@@ -62,4 +62,4 @@ Run `npm test`, `npm run typecheck` and `bb plugin build` before submitting chan
 
 ## License
 
-[MIT](LICENSE). Vesper's palette and its dark code theme are by Rauno Freiberg, under the MIT license in [LICENSE-VESPER](LICENSE-VESPER).
+[MIT](LICENSE). Vesper's palette and its dark code theme are by Rauno Freiberg, under the MIT license in [licenses/VESPER.txt](licenses/VESPER.txt).

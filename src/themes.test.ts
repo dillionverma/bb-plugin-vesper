@@ -77,7 +77,7 @@ test("the package ships every file the manifest names, plus both licenses", () =
     ...codeThemeFiles,
     ...skillFiles,
     "LICENSE",
-    "LICENSE-VESPER",
+    "licenses/VESPER.txt",
   ].map((path) => posix.normalize(path));
   expect(needed.filter((path) => !shipped.has(path))).toEqual([]);
 });
