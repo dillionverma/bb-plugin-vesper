@@ -57,7 +57,7 @@ const codeThemeFiles = [
   ...new Set(themes.flatMap((theme) => [theme.codeTheme.dark, theme.codeTheme.light])),
 ].filter((ref) => ref.includes("/") || ref.toLowerCase().endsWith(".json"));
 
-test("the package ships every file the manifest names, plus both licenses", () => {
+test("the package ships every file the manifest names, plus the license", () => {
   const [pack] = JSON.parse(
     execFileSync("npm", ["pack", "--dry-run", "--json", "--ignore-scripts"], {
       cwd: fileURLToPath(root),
@@ -77,7 +77,6 @@ test("the package ships every file the manifest names, plus both licenses", () =
     ...codeThemeFiles,
     ...skillFiles,
     "LICENSE",
-    "licenses/VESPER.txt",
   ].map((path) => posix.normalize(path));
   expect(needed.filter((path) => !shipped.has(path))).toEqual([]);
 });

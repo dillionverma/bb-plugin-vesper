@@ -8,8 +8,7 @@
     "assets/icon.svg",
     "src/server.ts",
     "themes",
-    "skills",
-    "licenses/VESPER.txt"
+    "skills"
   ],
   "engines": {
     "bb": ">=0.46",
